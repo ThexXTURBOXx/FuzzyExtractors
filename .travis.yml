@@ -1,9 +1,0 @@
-language: java
-jdk: openjdk8
-os: linux
-dist: xenial
-
-
-before_script: mvn -s settings.xml compile checkstyle:check -Dcheckstyle.config.location=https://femtopedia.de/checkstyle_new.xml
-
-script: mvn -s settings.xml clean install -U
