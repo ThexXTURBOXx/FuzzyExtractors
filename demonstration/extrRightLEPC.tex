@@ -1,0 +1,89 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.521in,
+height=3.566in,
+at={(0.758in,0.481in)},
+scale only axis,
+xmin=-0.5,
+xmax=26.5,
+xtick={ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18, 20, 22, 24, 26},
+xlabel style={font=\color{white!15!black}},
+xlabel={Zeit in ms},
+ymin=0,
+ymax=0.7,
+ytick={0,0.1,0.2,0.3,0.4,0.5,0.6,0.7},
+yticklabels={{0\%},{10\%},{20\%},{30\%},{40\%},{50\%},{60\%},{70\%}},
+ylabel style={font=\color{white!15!black}},
+ylabel={Anteil},
+axis background/.style={fill=white},
+title style={font=\bfseries},
+title={Low-End Computer},
+xmajorgrids,
+ymajorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot[ybar interval, fill=mycolor1, fill opacity=0.6, draw=black, area legend] table[row sep=crcr] {%
+x	y\\
+2	0.0854857142857143\\
+3	0.0423571428571429\\
+4	0.00208571428571429\\
+5	0.0042\\
+6	0.00404285714285714\\
+7	0.00294285714285714\\
+8	0.00131428571428571\\
+9	0.0003\\
+10	8.57142857142857e-05\\
+11	1.42857142857143e-05\\
+12	0.607485714285714\\
+13	0.153671428571429\\
+14	0.00725714285714286\\
+15	0.0214857142857143\\
+16	0.0257142857142857\\
+17	0.0229142857142857\\
+18	0.0134857142857143\\
+19	0.00374285714285714\\
+20	0.000842857142857143\\
+21	0.000214285714285714\\
+22	0.000128571428571429\\
+23	2.85714285714286e-05\\
+24	7.14285714285714e-05\\
+25	1.42857142857143e-05\\
+26	1.42857142857143e-05\\
+27	0\\
+28	1.42857142857143e-05\\
+29	1.42857142857143e-05\\
+30	0\\
+31	1.42857142857143e-05\\
+32	1.42857142857143e-05\\
+33	0\\
+34	1.42857142857143e-05\\
+35	0\\
+36	0\\
+37	0\\
+38	0\\
+39	1.42857142857143e-05\\
+40	0\\
+41	0\\
+42	1.42857142857143e-05\\
+43	1.42857142857143e-05\\
+};
+\addlegendentry{Anteil der Messungen}
+
+\addplot [color=red, line width=1.5pt]
+  table[row sep=crcr]{%
+11.2434	0\\
+11.2434	0.7\\
+};
+\addlegendentry{Durchschnitt: 11.24340 ms}
+
+\end{axis}
+\end{tikzpicture}%

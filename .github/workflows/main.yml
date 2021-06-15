@@ -1,0 +1,33 @@
+name: Build using Maven
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Run Checkstyle
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn -s settings.xml compile checkstyle:check -Dcheckstyle.config.location=https://femtopedia.de/checkstyle_new.xml
+      - name: Build using Maven
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn -s settings.xml clean install
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2.1.4
+        with:
+          name: FuzzyExtractor
+          path: target/fuzzyextractor-*.jar
+          if-no-files-found: error

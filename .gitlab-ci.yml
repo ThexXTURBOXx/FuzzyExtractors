@@ -1,0 +1,17 @@
+image: maven:3.8.1-jdk-8
+
+before_script:
+  - which java
+  - which javac
+
+verify:
+  script:
+    - mvn -s settings.xml compile checkstyle:check -Dcheckstyle.config.location=https://femtopedia.de/checkstyle_new.xml
+
+build:
+  script:
+    - mvn -s settings.xml clean install
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: never

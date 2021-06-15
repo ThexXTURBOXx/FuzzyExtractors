@@ -1,0 +1,64 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.521in,
+height=3.566in,
+at={(0.758in,0.481in)},
+scale only axis,
+xmin=-0.5,
+xmax=6.5,
+xtick={0, 1, 2, 3, 4, 5, 6},
+xlabel style={font=\color{white!15!black}},
+xlabel={Zeit in ms},
+ymin=0,
+ymax=0.6,
+ytick={0,0.1,0.2,0.3,0.4,0.5,0.6},
+yticklabels={{0\%},{10\%},{20\%},{30\%},{40\%},{50\%},{60\%}},
+ylabel style={font=\color{white!15!black}},
+ylabel={Anteil},
+axis background/.style={fill=white},
+title style={font=\bfseries},
+title={Eingeschr{\"a}nktes Ger{\"a}t},
+xmajorgrids,
+ymajorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot[ybar interval, fill=mycolor1, fill opacity=0.6, draw=black, area legend] table[row sep=crcr] {%
+x	y\\
+0	0.562529407571113\\
+1	0.437370784914807\\
+2	7.12910814857061e-05\\
+3	0\\
+4	1.42582162971412e-05\\
+5	0\\
+6	0\\
+7	0\\
+8	0\\
+9	0\\
+10	0\\
+11	0\\
+12	0\\
+13	0\\
+14	0\\
+15	1.42582162971412e-05\\
+16	1.42582162971412e-05\\
+};
+\addlegendentry{Anteil der Messungen}
+
+\addplot [color=red, line width=1.5pt]
+  table[row sep=crcr]{%
+0.437798531403721	0\\
+0.437798531403721	0.6\\
+};
+\addlegendentry{Durchschnitt: 0.43780 ms}
+
+\end{axis}
+\end{tikzpicture}%

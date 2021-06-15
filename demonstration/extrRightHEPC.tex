@@ -1,0 +1,60 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.521in,
+height=3.566in,
+at={(0.758in,0.481in)},
+scale only axis,
+xmin=-0.5,
+xmax=12.5,
+xtick={ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12},
+xlabel style={font=\color{white!15!black}},
+xlabel={Zeit in ms},
+ymin=0,
+ymax=0.45,
+ytick={0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45},
+yticklabels={{0\%},{5\%},{10\%},{15\%},{20\%},{25\%},{30\%},{35\%},{40\%},{45\%}},
+ylabel style={font=\color{white!15!black}},
+ylabel={Anteil},
+axis background/.style={fill=white},
+title style={font=\bfseries},
+title={High-End Computer},
+xmajorgrids,
+ymajorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot[ybar interval, fill=mycolor1, fill opacity=0.6, draw=black, area legend] table[row sep=crcr] {%
+x	y\\
+0	0.211949299075437\\
+1	0.432987038968834\\
+2	0.0527301047457094\\
+3	0.0138184312436588\\
+4	0.00211492019034282\\
+5	0.0729218765629689\\
+6	0.152088483687964\\
+7	0.0442561339830521\\
+8	0.0132182511896426\\
+9	0.00278655025078952\\
+10	0.000757370068163306\\
+11	0.000371540033438603\\
+12	0.000371540033438603\\
+};
+\addlegendentry{Anteil der Messungen}
+
+\addplot [color=red, line width=1.5pt]
+  table[row sep=crcr]{%
+2.32551428571429	0\\
+2.32551428571429	0.45\\
+};
+\addlegendentry{Durchschnitt: 2.32551 ms}
+
+\end{axis}
+\end{tikzpicture}%
