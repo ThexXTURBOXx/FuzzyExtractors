@@ -2,11 +2,9 @@ package de.femtopedia.fuzzy.extractors;
 
 import de.femtopedia.fuzzy.api.Corrector;
 import de.femtopedia.fuzzy.api.Extractor;
-import java.security.InvalidKeyException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -73,26 +71,22 @@ public class FuzzyExtractor implements Extractor<FuzzyExtractor.HelperData> {
     }
 
     /**
-     * {@inheritDoc}
+     * Applies a Strong Extractor to the given response {@link GF2Vector}
+     * and return the resulting {@link GF2Vector}.
+     *
+     * @param message The message to apply the Strong Extractor to.
+     * @return The resulting response.
      */
-    @Override
-    public GF2Vector strongExtract(GF2Vector message) {
+    private GF2Vector strongExtract(GF2Vector message) {
         byte[] encoded = message.getEncoded();
-        Mac hmac;
+        MessageDigest digest;
         try {
-            hmac = Mac.getInstance("HmacSHA256");
+            digest = MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
         }
-        SecretKeySpec secretKeySpec = new SecretKeySpec(encoded, "HmacSHA256");
-        try {
-            hmac.init(secretKeySpec);
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-            return null;
-        }
-        byte[] extracted = hmac.doFinal(encoded);
+        byte[] extracted = digest.digest(encoded);
         return GF2Vector.OS2VP(256, extracted);
     }
 
