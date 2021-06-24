@@ -4,12 +4,15 @@ import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
 
 /**
  * Provides methods to extract errors from a noisy binary message.
+ *
+ * @param <HelperData> The type for the helper data.
  */
-public interface Extractor {
+public interface Extractor<HelperData> {
 
     /**
      * Calculates helper data for the given response {@link GF2Vector}.
      * May only be called once, otherwise does nothing.
+     * Corresponds to the <code>Gen</code> function.
      *
      * @param message The response to generate helper data from.
      * @return The generated key or {@code null} if this method has already
@@ -20,6 +23,7 @@ public interface Extractor {
     /**
      * Applies the Fuzzy Extractor to the given response {@link GF2Vector}
      * and return the denoised {@link GF2Vector}.
+     * Corresponds to the <code>Rep</code> function.
      *
      * @param message The response to denoise.
      * @return The denoised response.
@@ -27,12 +31,10 @@ public interface Extractor {
     GF2Vector extract(GF2Vector message);
 
     /**
-     * Applies a Strong Extractor to the given response {@link GF2Vector}
-     * and return the resulting {@link GF2Vector}.
+     * Returns the generated helper data.
      *
-     * @param message The message to apply the Strong Extractor to.
-     * @return The resulting response.
+     * @return The generated and used helper data.
      */
-    GF2Vector strongExtract(GF2Vector message);
+    HelperData getHelperData();
 
 }

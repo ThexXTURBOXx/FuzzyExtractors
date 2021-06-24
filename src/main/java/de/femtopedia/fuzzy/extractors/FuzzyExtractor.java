@@ -16,7 +16,7 @@ import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
  * Provides Fuzzy Extractor functionality using the given {@link Corrector}.
  */
 @RequiredArgsConstructor
-public class FuzzyExtractor implements Extractor {
+public class FuzzyExtractor implements Extractor<FuzzyExtractor.HelperData> {
 
     /**
      * The underlying {@link Corrector} instance.
@@ -26,6 +26,7 @@ public class FuzzyExtractor implements Extractor {
     /**
      * The secret helper data.
      */
+    @Getter
     private HelperData helperData;
 
     /**
@@ -100,7 +101,7 @@ public class FuzzyExtractor implements Extractor {
      */
     @Getter
     @AllArgsConstructor
-    private static class HelperData {
+    public static class HelperData {
         /**
          * The first part of the helper data.
          */
