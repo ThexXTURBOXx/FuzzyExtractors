@@ -79,7 +79,6 @@ public class FuzzyExtractor implements Extractor<FuzzyExtractor.HelperData> {
      * @return The resulting response.
      */
     private GF2Vector strongExtract(GF2Vector message) {
-        byte[] encoded = message.getEncoded();
         MessageDigest digest;
         try {
             digest = MessageDigest.getInstance("SHA-256");
@@ -87,7 +86,7 @@ public class FuzzyExtractor implements Extractor<FuzzyExtractor.HelperData> {
             e.printStackTrace();
             return null;
         }
-        byte[] extracted = digest.digest(encoded);
+        byte[] extracted = digest.digest(message.getEncoded());
         return GF2Vector.OS2VP(256, extracted);
     }
 
