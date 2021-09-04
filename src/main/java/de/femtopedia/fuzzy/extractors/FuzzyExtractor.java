@@ -32,7 +32,7 @@ public class FuzzyExtractor implements Extractor<FuzzyExtractor.HelperData> {
      * {@inheritDoc}
      */
     @Override
-    public GF2Vector setOriginalResponse(GF2Vector w) {
+    public GF2Vector generateHelperData(GF2Vector w) {
         if (helperData != null) {
             return null;
         }

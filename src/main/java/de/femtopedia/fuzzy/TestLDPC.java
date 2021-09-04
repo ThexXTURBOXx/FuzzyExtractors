@@ -78,7 +78,7 @@ public final class TestLDPC {
                 GF2Vector orig = right[0];
                 FuzzyExtractor extractor = new FuzzyExtractor(
                         new LDPCCorrector(ldpc));
-                extractor.setOriginalResponse(orig);
+                extractor.generateHelperData(orig);
                 GF2Vector origExtracted = extractor.extract(orig);
 
                 System.out.println("Loaded data.");
@@ -88,7 +88,7 @@ public final class TestLDPC {
                     FuzzyExtractor temp = new FuzzyExtractor(
                             new LDPCCorrector(ldpc));
                     long start = System.currentTimeMillis();
-                    GF2Vector vec = temp.setOriginalResponse(key);
+                    GF2Vector vec = temp.generateHelperData(key);
                     avgOrigSet.add(System.currentTimeMillis() - start);
                     vec.getEncoded();
                 }
@@ -96,7 +96,7 @@ public final class TestLDPC {
                     FuzzyExtractor temp = new FuzzyExtractor(
                             new LDPCCorrector(ldpc));
                     long start = System.currentTimeMillis();
-                    GF2Vector vec = temp.setOriginalResponse(key);
+                    GF2Vector vec = temp.generateHelperData(key);
                     avgOrigSet.add(System.currentTimeMillis() - start);
                     vec.getEncoded();
                 }
