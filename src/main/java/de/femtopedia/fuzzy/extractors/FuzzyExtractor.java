@@ -8,7 +8,7 @@ import java.security.SecureRandom;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
+import org.bouncycastle.pqc.legacy.math.linearalgebra.GF2Vector;
 
 /**
  * Provides Fuzzy Extractor functionality using the given {@link Corrector}.

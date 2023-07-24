@@ -1,6 +1,6 @@
 package de.femtopedia.fuzzy.api;
 
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
+import org.bouncycastle.pqc.legacy.math.linearalgebra.GF2Vector;
 
 /**
  * Provides methods to correct errors in binary messages.

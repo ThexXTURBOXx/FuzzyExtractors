@@ -3,7 +3,7 @@ package de.femtopedia.fuzzy.codes;
 import de.femtopedia.fuzzy.api.Corrector;
 import de.femtopedia.ldpc.LDPC;
 import lombok.AllArgsConstructor;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
+import org.bouncycastle.pqc.legacy.math.linearalgebra.GF2Vector;
 
 /**
  * The {@link Corrector} implementation for {@link LDPC} codes.
