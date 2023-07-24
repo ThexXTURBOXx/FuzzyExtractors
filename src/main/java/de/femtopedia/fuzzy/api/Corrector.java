@@ -24,16 +24,16 @@ public interface Corrector {
     GF2Vector encode(GF2Vector message);
 
     /**
-     * Returns the number of parity bits in an encoded message.
+     * Returns the number of parity bits in an encoded message (n-k).
      *
-     * @return The number of parity bits in an encoded message.
+     * @return The number of parity bits in an encoded message (n-k).
      */
     int getParityBits();
 
     /**
-     * Returns the number of message bits in an encoded message.
+     * Returns the number of message bits in an encoded message (k).
      *
-     * @return The number of message bits in an encoded message.
+     * @return The number of message bits in an encoded message (k).
      */
     int getMessageBits();
 
